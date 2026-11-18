@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio of Mohamed Asghar Ali — Software Developer specializing in ASP.NET Core, C#, JavaScript and PostgreSQL.">
+<title>Mohamed Asghar Ali | Software Developer</title>
+<style>
+:root{--bg:#0b1020;--panel:#111a2e;--panel2:#151f35;--text:#edf2ff;--muted:#a5b1c8;--line:rgba(255,255,255,.1);--accent:#8ee3cf;--accent2:#8db8ff;--max:1080px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:86px}body{margin:0;background:radial-gradient(ellipse at 80% 0%,rgba(89,128,201,.16),transparent 38%),var(--bg);color:var(--text);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(11,16,32,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+nav{height:72px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:750;letter-spacing:-.04em}.brand span{color:var(--accent)}.navlinks{display:flex;gap:28px;color:var(--muted);font-size:14px}.navlinks a:hover{color:var(--accent)}
+.hero{padding:112px 0 92px;display:grid;grid-template-columns:1.4fr .6fr;gap:50px;align-items:center}.eyebrow{color:var(--accent);font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(42px,7vw,76px);line-height:1.04;letter-spacing:-.065em;margin:18px 0}.hero h1 em{font-style:normal;color:var(--accent)}.lead{font-size:18px;color:var(--muted);max-width:650px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{padding:12px 18px;border-radius:12px;border:1px solid var(--line);font-weight:650;font-size:14px;transition:.2s}.btn.primary{background:var(--accent);color:#09201d;border-color:var(--accent)}.btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+.hero-card{background:linear-gradient(145deg,rgba(142,227,207,.13),rgba(141,184,255,.07));border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:0 24px 80px rgba(0,0,0,.2)}.monogram{width:76px;height:76px;border-radius:22px;display:grid;place-items:center;background:var(--accent);color:#09201d;font-size:28px;font-weight:800;letter-spacing:-.08em}.hero-card h3{margin:22px 0 4px;font-size:20px}.hero-card p{margin:0;color:var(--muted);font-size:14px}.stat{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px;margin-top:18px;color:var(--muted);font-size:13px}.stat strong{color:var(--text)}
+section{padding:76px 0;border-top:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:30px}.kicker{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:.16em;font-weight:750}.section-head h2{font-size:clamp(28px,4vw,42px);letter-spacing:-.05em;line-height:1.1;margin:8px 0 0}.section-head p{color:var(--muted);max-width:430px;margin:0}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.surface{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:25px}.surface p{color:var(--muted);margin:0}.surface h3{margin:0 0 12px;font-size:17px}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.skill-group h3{font-size:15px;margin:0 0 14px}.tags{display:flex;gap:8px;flex-wrap:wrap}.tag{border:1px solid var(--line);background:rgba(255,255,255,.035);padding:7px 11px;border-radius:9px;color:#d6e0f2;font-size:13px}
+.timeline{position:relative;margin-left:7px;padding-left:28px;border-left:1px solid rgba(142,227,207,.35)}.timeline-item{position:relative;padding:0 0 34px}.timeline-item:last-child{padding-bottom:0}.timeline-item:before{content:"";position:absolute;left:-34px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(142,227,207,.12)}.roleline{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.roleline h3{margin:0;font-size:19px}.date{color:var(--accent);font-size:13px;font-weight:650}.company{color:var(--muted);margin:4px 0 14px}.timeline ul{padding-left:19px;margin:0;color:var(--muted)}.timeline li{padding:4px 0}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.edu h3{margin:0 0 5px}.edu p{color:var(--muted);margin:0;font-size:14px}
+.competencies{display:flex;gap:10px;flex-wrap:wrap}.competency{padding:10px 14px;background:var(--panel2);border:1px solid var(--line);border-radius:999px;color:#d8e3f5;font-size:14px}
+.contact{background:linear-gradient(120deg,rgba(142,227,207,.12),rgba(141,184,255,.08));border:1px solid var(--line);border-radius:24px;padding:34px;display:flex;justify-content:space-between;align-items:center;gap:24px}.contact h2{font-size:clamp(28px,4vw,40px);line-height:1.1;letter-spacing:-.05em;margin:8px 0}.contact p{color:var(--muted);margin:0}.contact-links{display:flex;flex-direction:column;gap:9px;font-size:14px}.contact-links a{color:var(--accent);overflow-wrap:anywhere}
+footer{padding:28px 0;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:16px}
+@media(max-width:760px){.navlinks{gap:14px;font-size:12px}.hero{grid-template-columns:1fr;padding:76px 0 64px;gap:30px}.hero-card{max-width:420px}.section-head{display:block}.section-head p{margin-top:12px}.about-grid,.skills,.edu-grid{grid-template-columns:1fr}.contact{display:block}.contact-links{margin-top:22px}}
+@media(max-width:480px){.wrap{width:min(var(--max),calc(100% - 28px))}nav{height:64px}.navlinks{gap:10px}.navlinks a:nth-child(2){display:none}.hero h1{font-size:46px}.surface{padding:20px}section{padding:58px 0}footer{display:block}footer span{display:block;margin-top:5px}}
+</style>
+</head>
+<body>
+<header><nav class="wrap"><a class="brand" href="#home">ASGHAR<span>.</span></a><div class="navlinks"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div></nav></header>
+<main>
+<div class="wrap hero" id="home">
+  <div><div class="eyebrow">Software Developer · Chennai, India</div>
+    <h1>Building reliable<br><em>software solutions.</em></h1>
+    <p class="lead">I’m Mohamed Asghar Ali, a software developer with 5+ years of experience building and supporting enterprise logistics applications. I work across backend development, database performance, integrations and production support.</p>
+    <div class="actions"><a class="btn primary" href="mailto:asgharpuma01@gmail.com">Let’s talk ↗</a><a class="btn" href="#experience">Explore my work ↓</a></div>
+  </div>
+  <aside class="hero-card"><div class="monogram">AA</div><h3>Mohamed Asghar Ali</h3><p>Senior Technical Co-Ordinator<br>eBMS Solutions Pvt. Ltd.</p><div class="stat"><span>Experience</span><strong>5+ years</strong></div><div class="stat"><span>Core stack</span><strong>.NET · PostgreSQL</strong></div><div class="stat"><span>Focus</span><strong>Enterprise systems</strong></div></aside>
+</div>
+<section id="about"><div class="wrap"><div class="section-head"><div><div class="kicker">01 / About</div><h2>Engineering with purpose.</h2></div><p>From feature development to live-system troubleshooting, I enjoy solving practical problems that make business software more dependable.</p></div>
+<div class="about-grid"><div class="surface"><h3>What I do</h3><p>Design, develop and support enterprise web applications using ASP.NET Core, C#, JavaScript and PostgreSQL. Experienced in logistics workflows, integrations, query optimization and application deployment.</p></div><div class="surface"><h3>How I work</h3><p>I collaborate with stakeholders and end users, translate requirements into enhancements, support production environments, and guide teams through code reviews, sprint planning and technical problem-solving.</p></div></div></div></section>
+<section id="skills"><div class="wrap"><div class="section-head"><div><div class="kicker">02 / Toolkit</div><h2>Skills & technologies.</h2></div><p>A practical toolkit spanning application development, data, delivery and logistics domain knowledge.</p></div>
+<div class="skills">
+<div class="surface skill-group"><h3>Programming & frameworks</h3><div class="tags"><span class="tag">ASP.NET Core</span><span class="tag">C#</span><span class="tag">JavaScript</span><span class="tag">REST APIs</span><span class="tag">MVC Architecture</span></div></div>
+<div class="surface skill-group"><h3>Database & backend</h3><div class="tags"><span class="tag">PostgreSQL</span><span class="tag">SQL</span><span class="tag">Query Optimization</span><span class="tag">Database Tuning</span></div></div>
+<div class="surface skill-group"><h3>Tools & platforms</h3><div class="tags"><span class="tag">Visual Studio 2019/2022</span><span class="tag">PgAdmin</span><span class="tag">DBeaver</span><span class="tag">Bug Tracking</span><span class="tag">Ticket Management</span></div></div>
+<div class="surface skill-group"><h3>Domain & operations</h3><div class="tags"><span class="tag">Freight Forwarding</span><span class="tag">NVOCC</span><span class="tag">Yard Management</span><span class="tag">Transportation</span><span class="tag">Container Trading</span><span class="tag">Production Support</span><span class="tag">Deployment</span></div></div>
+</div></div></section>
+<section id="experience"><div class="wrap"><div class="section-head"><div><div class="kicker">03 / Experience</div><h2>Where I’ve made an impact.</h2></div><p>Professional experience focused on enterprise logistics platforms and ongoing application delivery.</p></div>
+<div class="timeline"><article class="timeline-item"><div class="roleline"><h3>Senior Technical Co-Ordinator</h3><span class="date">Apr 2019 — Present</span></div><div class="company">eBMS Solutions Pvt. Ltd.</div><ul>
+<li>Designed, developed and supported enterprise modules across Freight Forwarding, NVOCC, Yard Management and Transportation systems.</li>
+<li>Built and maintained hybrid web applications using ASP.NET Core, C#, JavaScript and PostgreSQL.</li>
+<li>Integrated government invoicing platforms including GST, VAT and ZATCA to support regulatory compliance.</li>
+<li>Managed AMC projects covering requirement analysis, bug fixing, performance optimization, database tuning and deployment.</li>
+<li>Optimized application performance and SQL queries to improve system stability and response times.</li>
+<li>Worked with business stakeholders and end users to gather requirements and deliver enhancements.</li>
+<li>Led and mentored a team of 3–5 members through code reviews, sprint planning and technical guidance.</li>
+<li>Provided on-site production support in Dubai, coordinating with clients and troubleshooting live systems.</li>
+</ul></article></div></div></section>
+<section id="education"><div class="wrap"><div class="section-head"><div><div class="kicker">04 / Education</div><h2>Academic background.</h2></div></div><div class="edu-grid">
+<div class="surface edu"><h3>Master of Computer Application (MCA)</h3><p>Measi Institute of Information Technology · 2018–2020</p></div>
+<div class="surface edu"><h3>Bachelor of Computer Application (BCA)</h3><p>The New College · 2015–2018</p></div>
+</div></div></section>
+<section id="more"><div class="wrap"><div class="section-head"><div><div class="kicker">05 / Beyond code</div><h2>Core competencies.</h2></div></div><div class="competencies"><span class="competency">Problem solving</span><span class="competency">Team leadership</span><span class="competency">Client communication</span><span class="competency">Agile collaboration</span><span class="competency">Adaptability & quick learning</span></div><div style="margin-top:25px;color:var(--muted);font-size:14px">Languages: <strong style="color:var(--text)">English · Hindi · Tamil</strong></div></div></section>
+<section id="contact"><div class="wrap"><div class="contact"><div><div class="kicker">06 / Get in touch</div><h2>Have a project in mind?</h2><p>Let’s connect and talk about building something useful.</p></div><div class="contact-links"><a href="mailto:asgharpuma01@gmail.com">asgharpuma01@gmail.com ↗</a><a href="tel:+919791150947">+91 9791150947</a><span>Chennai, India</span></div></div></div></section>
+</main>
+<footer class="wrap"><span>© <span id="year"></span> Mohamed Asghar Ali</span><span>Designed with clarity & care.</span></footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body></html>
