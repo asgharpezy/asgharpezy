@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Portfolio of Mohamed Asghar Ali — Software Developer specializing in ASP.NET Core, C#, JavaScript and PostgreSQL.">
 <title>Mohamed Asghar Ali | Software Developer</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
 <style>
 :root{--bg:#0b1020;--panel:#111a2e;--panel2:#151f35;--text:#edf2ff;--muted:#a5b1c8;--line:rgba(255,255,255,.1);--accent:#8ee3cf;--accent2:#8db8ff;--max:1080px}
 *{box-sizing:border-box}html{scroll-behavior:auto}body{margin:0;background:radial-gradient(ellipse at 80% 0%,rgba(89,128,201,.16),transparent 38%),var(--bg);color:var(--text);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
@@ -33,7 +34,7 @@ footer{padding:28px 0;color:var(--muted);font-size:13px;display:flex;justify-con
 <a href="#contact"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>Contact</a>
 <a class="resume-link" href="resume.pdf" download="Mohamed-Asghar-Ali-Resume.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 17v3h14v-3"/></svg>Resume</a>
 </div></nav></header>
-<main>
+<main data-scroll-container>
 <div class="wrap hero" id="home">
   <div><div class="eyebrow">Software Developer · Chennai, India</div>
     <h1>Building reliable<br><em>software solutions.</em></h1>
@@ -68,7 +69,31 @@ footer{padding:28px 0;color:var(--muted);font-size:13px;display:flex;justify-con
 </div></div></section>
 <section id="more"><div class="wrap"><div class="section-head"><div><div class="kicker">05 / Beyond code</div><h2>Core competencies.</h2></div></div><div class="competencies"><span class="competency">Problem solving</span><span class="competency">Team leadership</span><span class="competency">Client communication</span><span class="competency">Agile collaboration</span><span class="competency">Adaptability & quick learning</span></div><div style="margin-top:25px;color:var(--muted);font-size:14px">Languages: <strong style="color:var(--text)">English · Hindi · Tamil</strong></div></div></section>
 <section id="contact"><div class="wrap"><div class="contact"><div><div class="kicker">06 / Get in touch</div><h2>Have a project in mind?</h2><p>Let’s connect and talk about building something useful.</p></div><div class="contact-links"><a href="mailto:asgharpuma01@gmail.com">asgharpuma01@gmail.com ↗</a><a href="tel:+919791150947">+91 9791150947</a><span>Chennai, India</span></div></div></div></section>
-</main>
 <footer class="wrap"><span>© <span id="year"></span> Mohamed Asghar Ali</span><span>Designed with clarity & care.</span></footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+(() => {
+  if (typeof LocomotiveScroll === 'undefined') return;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const scroll = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: !reducedMotion,
+    lerp: 0.09,
+    multiplier: 1,
+    smartphone: { smooth: false },
+    tablet: { smooth: false }
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    const target = document.getElementById(link.getAttribute('href').slice(1));
+    if (!target) return;
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      scroll.scrollTo(target, { offset: -86, duration: reducedMotion ? 0 : 800 });
+    });
+  });
+  window.addEventListener('load', () => scroll.update());
+})();
+</script>
 </body></html>
