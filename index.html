@@ -24,6 +24,17 @@ section{padding:76px 0;border-top:1px solid var(--line)}.section-head{display:fl
 footer{padding:28px 0;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:16px}
 @media(max-width:760px){.navlinks{gap:13px;font-size:12px}.nav-icon{display:none}.resume-link{padding:8px 10px}.hero{grid-template-columns:1fr;padding:76px 0 64px;gap:30px}.hero-card{max-width:420px}.section-head{display:block}.section-head p{margin-top:12px}.about-grid,.skills,.edu-grid{grid-template-columns:1fr}.contact{display:block}.contact-links{margin-top:22px}}
 @media(max-width:480px){.wrap{width:min(var(--max),calc(100% - 28px))}nav{height:64px}.navlinks{gap:10px}.navlinks a:nth-child(2),.navlinks a:nth-child(3){display:none}.resume-link{font-size:12px}.hero h1{font-size:46px}.surface{padding:20px}section{padding:58px 0}footer{display:block}footer span{display:block;margin-top:5px}}
+
+/* Custom pointer: precise dot with a softly trailing hover ring */
+@media (pointer:fine) and (hover:hover) {
+  body.has-custom-cursor,body.has-custom-cursor a,body.has-custom-cursor button {cursor:none}
+  .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;z-index:99999;pointer-events:none;border-radius:50%;opacity:0;will-change:transform;transition:opacity .18s ease}
+  .cursor-dot{width:7px;height:7px;margin:-3.5px 0 0 -3.5px;background:var(--accent)}
+  .cursor-ring{width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid var(--accent);transition:opacity .18s ease,width .2s ease,height .2s ease,margin .2s ease,background .2s ease}
+  .cursor-dot.is-visible,.cursor-ring.is-visible{opacity:1}
+  .cursor-ring.is-active{width:52px;height:52px;margin:-26px 0 0 -26px;background:rgba(142,227,207,.08)}
+}
+@media (prefers-reduced-motion:reduce){.cursor-dot,.cursor-ring{display:none!important}}
 </style>
 </head>
 <body>
@@ -94,6 +105,27 @@ document.getElementById('year').textContent=new Date().getFullYear();
     });
   });
   window.addEventListener('load', () => scroll.update());
+})();
+</script>
+
+<script>
+(function(){
+  if(!window.matchMedia('(pointer:fine) and (hover:hover)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var dot=document.createElement('div'),ring=document.createElement('div');
+  dot.className='cursor-dot';ring.className='cursor-ring';
+  document.body.appendChild(dot);document.body.appendChild(ring);
+  document.body.classList.add('has-custom-cursor');
+  var mouseX=-100,mouseY=-100,ringX=-100,ringY=-100,visible=false;
+  document.addEventListener('pointermove',function(e){
+    if(e.pointerType && e.pointerType!=='mouse')return;
+    mouseX=e.clientX;mouseY=e.clientY;
+    dot.style.transform='translate3d('+mouseX+'px,'+mouseY+'px,0)';
+    if(!visible){visible=true;dot.classList.add('is-visible');ring.classList.add('is-visible');}
+    ring.classList.toggle('is-active',!!e.target.closest('a,button,[role="button"]'));
+  },{passive:true});
+  document.addEventListener('pointerout',function(e){if(!e.relatedTarget){visible=false;dot.classList.remove('is-visible');ring.classList.remove('is-visible');}});
+  function follow(){ringX+=(mouseX-ringX)*.15;ringY+=(mouseY-ringY)*.15;ring.style.transform='translate3d('+ringX+'px,'+ringY+'px,0)';requestAnimationFrame(follow);}
+  follow();
 })();
 </script>
 </body></html>
